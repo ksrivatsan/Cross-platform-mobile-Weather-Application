@@ -1,0 +1,130 @@
+{{#each city in model}}
+  <div class="city-detail">
+    <section class="city-header">
+      <h2>{{city.cityName}}</h2>
+      <h4>{{todays_summary}}</h4>
+      <h1>{{todays_temperature}}˚</h1>
+    </section>
+    <section class="today">
+      <ul class="today-overview">
+        <li>{{today_day}}</li>
+        <li>{{relative_day}}</li>
+        <li>{{max_temp}}˚</li>
+        <li>{{min_temp}}˚</li>
+      </ul>
+      <div class="today-hourly-list-container">
+        <ul class="today-hourly-list">
+          {{#each detail in hourlyDetails}}
+            <li>
+              <ul>
+                <li>{{detail.time}}</li>
+                <li><img {{bind-attr src=detail.icon}}/></li>
+                <li>{{detail.temperature}}˚</li>
+              </ul>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+    <section class="forecast">
+      <ul class="forecast-list">
+        {{#each detail in dailyDetails}}
+          <li>
+            <ul>
+              <li>{{detail.day}}</li>
+              <li><img {{bind-attr src=detail.icon}}/></li>
+              <li>{{detail.daily_max}}˚</li>
+              <li>{{detail.daily_min}}˚</li>
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+    <section class="today-details">
+      <p class="today-summary"> Today: {{summary}}</p>
+      <ul class="today-details-list">
+        <li>
+          <ul>
+            <li>Sunrise:</li>
+            <li>{{sunrise}}</li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>Sunset:</li>
+            <li>{{sunset}}</li>
+          </ul>
+        </li>
+        <li>
+        </li>
+        <li>
+          <ul>
+            <li>Chance of Rain:</li>
+            <li>{{chance_of_rain}}</li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>Humidity:</li>
+            <li>86%</li>
+          </ul>
+        </li>
+        <li>
+        </li>
+        <li>
+          <ul>
+            <li>Wind:</li>
+            <li>{{wind_speed}}</li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>Feels like:</li>
+            <li>{{feels_like}}˚</li>
+          </ul>
+        </li>
+        <li>
+        </li>
+        <li>
+          <ul>
+            <li>Precipitation:</li>
+            <li>{{precip}}</li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>Pressure:</li>
+            <li>{{pressure}}</li>
+          </ul>
+        </li>
+        <li>
+        </li>
+        <li>
+          <ul>
+            <li>Visibility:</li>
+            <li>{{visibility}}</li>
+          </ul>
+        </li>
+      </ul>
+  	</section>
+  </div>
+  <nav>
+    <div class="celsius-or-fahrenheit">
+      <span class="celsius" {{action 'toggleToUS'}}>˚C / </span><span class="fahrenheit" {{action 'toggleToSI'}}> ˚F</span>
+    </div>
+    <div class="next-prev-nav">
+      <div class="prev-button">
+        <a {{action 'previousCity' city.id}} >◀</a>
+      </div>
+      <div class="indicator-dots">
+        <span class="dot current">•</span><span class="dot">•</span>
+      </div>
+      <div class="next-button">
+        <a {{action 'nextCity' city.id}} >▶</a>
+      </div>
+    </div>
+  	<div class="list-button">
+  	  {{#link-to 'citylist'}} ☰ {{/link-to}}
+  	</div>
+  </nav>
+{{/each}}

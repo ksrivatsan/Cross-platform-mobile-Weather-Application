@@ -1,0 +1,14 @@
+<div class="addcities">
+	Enter city,zip code, or airpot location
+	<div>
+		{{input class="searchField" type="text" value=cities}}
+		<button class="cancel" {{action 'cancel'}}> Cancel </button>
+	</div>
+</div>	
+<ul>
+	{{#each city in controller}}
+		<li {{action 'citySelected' city.lat city.lng city.formatted_address}}> 
+			<p> {{city.formatted_address}} </p>
+		</li>
+	{{/each}}
+</ul>

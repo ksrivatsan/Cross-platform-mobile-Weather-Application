@@ -1,0 +1,47 @@
+<div class="cities-list">
+  <ul>
+    {{#each city in model}}
+      {{#if userIsEditing}}
+          <li class="is-sanjose">
+            <ul>
+              <li>
+                <div>
+                  <div class=" edit_circle circle" {{action 'delete' city}}>-</div>
+                </div>
+                <div class="time"> {{city.cityTime}} </div>
+                <div class="city-name"> {{city.cityName}} </div>
+              </li>
+              <li>
+                {{city.cityTemperature}} ˚
+              </li>
+            </ul>
+          </li>
+      {{else}}
+        {{#link-to 'citydetailpage' city.id}}
+          <li class="is-sanjose">
+            <ul>
+              <li>
+                <div class="time"> {{city.cityTime}} </div>
+                <div class="city-name"> {{city.cityName}} </div>
+              </li>
+              <li>
+                {{city.cityTemperature}} ˚
+              </li>
+            </ul>
+          </li>
+        {{/link-to}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+<nav>
+  <div class="celsius-or-fahrenheit">
+    <span class="celsius" {{action 'toggleToCelcius'}}>˚C / </span><span class="fahrenheit" {{action 'toggleToFarenheit'}}> ˚F</span>
+  </div>
+  <div id='edit' {{action 'userIsEditing'}} {{ bind-attr class='userEditingProp'}}> {{label}} </div>
+  <div id="add">
+    {{#link-to 'addcity'}}
+      <div class='symbol circle'> + </div>
+    {{/link-to}}
+  </div>
+</nav>
