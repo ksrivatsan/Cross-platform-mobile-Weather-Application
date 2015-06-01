@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Assignment3
 
 This README outlines the details of collaborating on this Ember application.
@@ -51,3 +52,6 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
+=======
+# Cross-platform-mobile-Weather-Application
+>>>>>>> 958ccaa52670e3964b481c0de3444e724f86a8b1
